@@ -45,14 +45,14 @@ public class CrawlerController : MonoBehaviour, IMonsterController
     public void LocalTrackPlayer()
     {
         var offset = GetOffset();
-
+        offset = new Vector3(offset.x, 0.0f, offset.z);
         Quaternion rotation = Quaternion.LookRotation(offset);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2.0f);
 
         if (offset.magnitude > 1.0f)
         {
-            _cc.Move(offset * 0.2f * Time.deltaTime);
+            _cc.SimpleMove(offset.normalized * 20.0f * Time.deltaTime);
         }
         else
         {
@@ -64,7 +64,10 @@ public class CrawlerController : MonoBehaviour, IMonsterController
     {
         _ani.SetBool("PlayerInRange", true);
 
-        if (GetOffset().magnitude > 1.0f)
+        var offset = GetOffset();
+        offset = new Vector3(offset.x, 0.0f, offset.z);
+
+        if (offset.magnitude > 1.0f)
         {
             _inAttackRange = false;
         }

@@ -16,7 +16,7 @@ public class WeaponIdleState : IPlayerState
         _weaponInfo = PlayerManager.Instance.CurRangeWeaponInfo[PlayerManager.Instance.CurRangeWeaponId];
         _weaponInfo.CurAmmo = _weaponInfo.MaxAmmo;
 
-        _fireInterval = _weaponInfo.FireRate;
+        _fireInterval = 0f;
     }
 
     public void End()
