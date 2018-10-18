@@ -40,6 +40,7 @@ public class WeaponIdleState : IPlayerState
                     if (info.CurAmmo > 0)
                     {
                         PlayerManager.Instance.PlayerBehaviours[0].BaseRangeDamage.Execute();
+                        Debug.Log("Fired Weapon");
                     }
                     else // No Ammo
                     {
