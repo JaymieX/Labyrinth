@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: MonsterIdleState
   m_EditorClassIdentifier: 
   Transitions:
-  - Decider: {fileID: 0}
-    SucceedState: {fileID: 0}
+  - Decider: {fileID: 11400000, guid: 5e1f84779c774f14bacdff281af68fdb, type: 2}
+    SucceedState: {fileID: 11400000, guid: 0c02ca5081cb52641b0eb94b0711aad7, type: 2}
     FailState: {fileID: 0}
   Actions: []

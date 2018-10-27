@@ -11,5 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33532c5b397a7734481a3e84cdf2ce62, type: 3}
   m_Name: MonsterSeekerState
   m_EditorClassIdentifier: 
-  Transitions: []
+  Transitions:
+  - Decider: {fileID: 11400000, guid: 06699c4646930be4790afcae54758350, type: 2}
+    SucceedState: {fileID: 11400000, guid: d47ae1733ddfd1d40b6444119f2c9a75, type: 2}
+    FailState: {fileID: 0}
+  - Decider: {fileID: 0}
+    SucceedState: {fileID: 0}
+    FailState: {fileID: 0}
   Actions: []

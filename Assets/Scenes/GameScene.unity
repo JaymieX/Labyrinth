@@ -2100,6 +2100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MInfo: {fileID: 11400000, guid: 635d540194bc48e43bd7aec48598137e, type: 2}
+  CurrentMonsterState: {fileID: 11400000, guid: d47ae1733ddfd1d40b6444119f2c9a75,
+    type: 2}
 --- !u!1001 &568555600
 Prefab:
   m_ObjectHideFlags: 0
