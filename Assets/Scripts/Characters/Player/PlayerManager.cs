@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
+// Signature
+internal delegate void HandlePlayerOpenInteract();
 
 public class PlayerManager : MonoBehaviour
 {
@@ -32,6 +36,14 @@ public class PlayerManager : MonoBehaviour
 
     internal ushort CurMagSize;
     internal RangeWeaponInfo[] CurRangeWeaponInfo;
+
+    /****************************************************
+     *
+     * Actions
+     *
+     ****************************************************/
+
+    internal Action OnPlayerOpenInteract;
 
     void Awake()
     {

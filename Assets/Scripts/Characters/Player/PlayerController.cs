@@ -51,6 +51,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Master controls
+
+        // Open Gate
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            var openAction = PlayerManager.Instance.OnPlayerOpenInteract;
+            if (openAction != null)
+            {
+                openAction();
+            }
+        }
+
         // Handle input
         PlayerState.HandleInput();
         PlayerWeaponTypeState.HandleInput();
