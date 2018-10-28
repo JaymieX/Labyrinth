@@ -76,6 +76,7 @@ public class Gate : MonoBehaviour
         Destroy(_gateDoor);
 
         // Initiate next round
+        SpawnManager.Instance.SpawnEnemy();
 
         // Destroy script
         PlayerManager.Instance.OnPlayerOpenInteract = null;
