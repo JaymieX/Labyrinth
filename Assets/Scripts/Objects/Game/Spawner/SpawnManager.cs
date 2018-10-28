@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (var spawner in Spawners)
         {
-            Vector3 playerPos = PlayerManager.Instance.PlayerPos;
+            Vector3 playerPos = PlayerManager.Instance.PlayerCharacterController.transform.position;
             playerPos.y = 0f;
 
             Vector3 spawnerPos = spawner.transform.position;
