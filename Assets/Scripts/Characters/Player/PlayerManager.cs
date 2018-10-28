@@ -6,15 +6,31 @@ internal delegate void HandlePlayerOpenInteract();
 
 public class PlayerManager : MonoBehaviour
 {
+    /****************************************************
+     *
+     * Singleton
+     *
+     ****************************************************/
     internal static PlayerManager Instance = null;
+
+    /****************************************************
+     *
+     * Inspector related objects
+     *
+     ****************************************************/
+
     internal CharacterController PlayerCharacterController;
     internal PlayerController PlayerController;
 
     internal ushort MaxPlayers = 1; // Max number of player
-
     internal PlayerBehaviour[] PlayerBehaviours;
-
     internal ushort CurrentPlayer;
+
+    /****************************************************
+     *
+     * Game data
+     *
+     ****************************************************/
 
     // Global Resources
     public ushort Gears { get; set; }
@@ -25,17 +41,28 @@ public class PlayerManager : MonoBehaviour
     public float ModLuck { get; set; } // Mod luck percentage
     public float ModGearRate { get; set; } // Mod money rate from loot
 
-    // Misc
-    public Vector3 PlayerPos;
-    internal Vector3 MoveDirection = Vector3.zero;
-
-    // Weapon
+    /****************************************************
+     *
+     * Weapon data
+     * Weapon type:
+     * 0 for range weapons
+     * 1 for melee weapons
+     *
+     ****************************************************/
     internal ushort WeaponType;
-
     internal ushort CurRangeWeaponId;
 
     internal ushort CurMagSize;
     internal RangeWeaponInfo[] CurRangeWeaponInfo;
+
+    /****************************************************
+     *
+     * Misc
+     *
+     ****************************************************/
+
+    public Vector3 PlayerPos;
+    internal Vector3 MoveDirection = Vector3.zero;
 
     /****************************************************
      *
@@ -49,14 +76,17 @@ public class PlayerManager : MonoBehaviour
     {
         if (Instance == null)
         {
+            // Init singleton
             Instance = this;
 
             Instance.PlayerBehaviours = new PlayerBehaviour[MaxPlayers];
             Instance.Gears = 0;
             Instance.CurrentPlayer = 0;
 
+            // Set current weapon type
             Instance.WeaponType = 0;
 
+            // Init range weapon info
             Instance.CurRangeWeaponInfo = new RangeWeaponInfo[2];
             Instance.CurRangeWeaponInfo[0].Damage = 10.0f;
             Instance.CurRangeWeaponInfo[0].FireRate = 1.2f;
@@ -66,6 +96,7 @@ public class PlayerManager : MonoBehaviour
             Instance.CurRangeWeaponInfo[0].ReloadTime = 3.2f;
         }
 
+        // Setup so that Player manager do not gets destroyed
         DontDestroyOnLoad(this);
     }
 
