@@ -8,14 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4510af3567c4cd4f82c2eb5e269b652, type: 3}
-  m_Name: CrawlerInfo
+  m_Script: {fileID: 11500000, guid: be79819675c4cbf4e8434f144c48aacf, type: 3}
+  m_Name: MonsterAnimationEvent
   m_EditorClassIdentifier: 
-  Health: 20
-  AttackPoint: 5
-  AttackSpeed: 5
-  AttackRange: 1
-  WalkSpeed: 1
-  DeaggroDistance: 35
-  SightRange: 5
-  SightRad: 5

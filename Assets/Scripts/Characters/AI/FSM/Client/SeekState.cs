@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterFSM/FSM/State/GenericState")]
-public class GenericState : MonsterState
+[CreateAssetMenu(menuName = "MonsterFSM/FSM/State/SeekerState")]
+public class SeekState : MonsterState
 {
+    private bool _startChase;
+
     public override void Begin(MonsterStateController msc)
     {
-        msc.NavMA.destination = msc.transform.position; // Stop the nav mesh agent in its place
-
-        foreach (var beginEvent in BeginEvents)
-        {
-            beginEvent.Invoke(msc);
-        }
+        // Begin the scream animation
+        msc.Ani.SetBool("FoundPlayer", true);
+        _startChase = false;
     }
 
     public override void UpdateState(MonsterStateController msc)
     {
+        _startChase = msc.Ani.GetCurrentAnimatorStateInfo(0).tagHash == Animator.StringToHash("ZombieWalk");
+
+        // Don't check while monster is playing screaming animation
+        if (!_startChase) return;
+
         // Execute
         foreach (var action in Actions)
         {
@@ -30,9 +34,5 @@ public class GenericState : MonsterState
 
     public override void End(MonsterStateController msc)
     {
-        foreach (var endEvent in EndEvents)
-        {
-            endEvent.Invoke(msc);
-        }
     }
 }

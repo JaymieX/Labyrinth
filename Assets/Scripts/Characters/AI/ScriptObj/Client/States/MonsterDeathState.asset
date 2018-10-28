@@ -9,18 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33532c5b397a7734481a3e84cdf2ce62, type: 3}
-  m_Name: MonsterIdleState
+  m_Name: MonsterDeathState
   m_EditorClassIdentifier: 
-  Transitions:
-  - Decider: {fileID: 11400000, guid: 5e1f84779c774f14bacdff281af68fdb, type: 2}
-    SucceedState: {fileID: 11400000, guid: 488e4c1e7afbd6042bf1488f43c26215, type: 2}
-    FailState: {fileID: 0}
+  Transitions: []
   Actions: []
   BeginEvents:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: a9b27d16c11dea340bcdbc1d6a177305, type: 2}
-        m_MethodName: OnIdleBegin
+        m_MethodName: OnDeathBegin
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

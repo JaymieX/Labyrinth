@@ -1,17 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-/// <summary>
-/// A packed struct for state transition
-/// </summary>
-[System.Serializable]
-public struct TransitionPack
-{
-    public MonsterDecider Decider;
-    public MonsterState SucceedState;
-    public MonsterState FailState;
-}
+using UnityEngine.Events;
 
 public abstract class MonsterState : ScriptableObject
 {
@@ -24,6 +14,9 @@ public abstract class MonsterState : ScriptableObject
     // Inspector variables
     public TransitionPack[] Transitions;
     public MonsterAction[] Actions;
+
+    public StateEvent[] BeginEvents;
+    public StateEvent[] EndEvents;
 
     /// <summary>
     /// Function to be call at the beginning of this state

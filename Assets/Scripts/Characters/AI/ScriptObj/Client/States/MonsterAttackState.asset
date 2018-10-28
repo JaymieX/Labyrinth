@@ -9,18 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33532c5b397a7734481a3e84cdf2ce62, type: 3}
-  m_Name: MonsterIdleState
+  m_Name: MonsterAttackState
   m_EditorClassIdentifier: 
   Transitions:
-  - Decider: {fileID: 11400000, guid: 5e1f84779c774f14bacdff281af68fdb, type: 2}
-    SucceedState: {fileID: 11400000, guid: 488e4c1e7afbd6042bf1488f43c26215, type: 2}
-    FailState: {fileID: 0}
+  - Decider: {fileID: 11400000, guid: 752f5c6ca194a784ba9009e1ea5f1a22, type: 2}
+    SucceedState: {fileID: 0}
+    FailState: {fileID: 11400000, guid: 488e4c1e7afbd6042bf1488f43c26215, type: 2}
   Actions: []
   BeginEvents:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: a9b27d16c11dea340bcdbc1d6a177305, type: 2}
-        m_MethodName: OnIdleBegin
+        m_MethodName: OnAttackBegin
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31,4 +31,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: StateEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  EndEvents: []
+  EndEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a9b27d16c11dea340bcdbc1d6a177305, type: 2}
+        m_MethodName: OnAttackEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: StateEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

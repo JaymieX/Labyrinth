@@ -7,6 +7,7 @@ public class MonsterInfo : ScriptableObject
     public ushort Health;
     public float AttackPoint;
     public float AttackSpeed;
+    public float AttackRange;
 
     // General stats
     public float WalkSpeed;

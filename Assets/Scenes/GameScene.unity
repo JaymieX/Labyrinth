@@ -2063,7 +2063,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2102,6 +2102,10 @@ MonoBehaviour:
   MInfo: {fileID: 11400000, guid: 635d540194bc48e43bd7aec48598137e, type: 2}
   CurrentMonsterState: {fileID: 11400000, guid: d47ae1733ddfd1d40b6444119f2c9a75,
     type: 2}
+  AllStateTransitions:
+  - Decider: {fileID: 11400000, guid: b289fe5f17110d14ebcb13f4b9c134ea, type: 2}
+    SucceedState: {fileID: 11400000, guid: 2ef89bebb2aa1af47a6585c464be169c, type: 2}
+    FailState: {fileID: 0}
 --- !u!1001 &568555600
 Prefab:
   m_ObjectHideFlags: 0
