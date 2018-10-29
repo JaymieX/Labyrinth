@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: CrawlerInfo
   m_EditorClassIdentifier: 
   Health: 20
-  AttackPoint: 5
+  AttackPoint: 10
   AttackSpeed: 5
   AttackRange: 1
   AttackRad: 10

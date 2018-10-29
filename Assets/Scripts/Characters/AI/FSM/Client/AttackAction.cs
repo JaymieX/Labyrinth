@@ -8,6 +8,7 @@ public class AttackAction : MonsterAction
         if (msc.SeekAttackForward())
         {
             Debug.Log("Monster hit player!");
+            PlayerManager.Instance.RemoveHealth(msc.MInfo.AttackPoint);
         }
     }
 }

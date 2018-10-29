@@ -8,6 +8,8 @@ public class LGameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        PlayerManager.Instance.ResetAll();
+
         PlayerManager.Instance.PlayerCharacterController = CharacterController;
         PlayerManager.Instance.PlayerController = PlayerController;
     }

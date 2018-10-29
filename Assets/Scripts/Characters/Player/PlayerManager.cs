@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 // Signature
@@ -32,8 +33,10 @@ public class PlayerManager : MonoBehaviour
      *
      ****************************************************/
 
-    // Global Resources
+    // Resources
     public ushort Gears { get; set; }
+
+    public float CurrentHealth;
 
     // Power up
     public float ModWalkSpeed { get; set; } // Mod walking speed
@@ -99,6 +102,80 @@ public class PlayerManager : MonoBehaviour
         // Setup so that Player manager do not gets destroyed
         DontDestroyOnLoad(this);
     }
+
+    private void Update()
+    {
+        // Constantly replenish health;
+    }
+
+    /****************************************************
+     *
+     * Reset related functions
+     *
+     ****************************************************/
+
+    public void ResetAll()
+    {
+        ResetResources();
+        StartCoroutine("RegenHealth");
+    }
+
+    public void ResetResources()
+    {
+        CurrentHealth = GetCurrentBehaviour().BaseHealth;
+
+        ModWalkSpeed = 1f;
+        ModHealth = 1f;
+        ModLuck = 1f;
+        ModGearRate = 1f;
+    }
+
+    /****************************************************
+     *
+     * Communication functions
+     *
+     ****************************************************/
+
+    public void RemoveHealth(float amount)
+    {
+        CurrentHealth -= amount;
+
+        if (CurrentHealth < 0)
+        {
+            OnPlayerDeath();
+        }
+    }
+
+    /****************************************************
+     *
+     * Event functions
+     *
+     ****************************************************/
+
+    private void OnPlayerDeath()
+    {
+        Debug.Log("You Died!");
+    }
+
+    private IEnumerator RegenHealth()
+    {
+        while (true)
+        {
+            CurrentHealth += 1f * ModHealth;
+            if (CurrentHealth > GetCurrentBehaviour().BaseHealth)
+            {
+                CurrentHealth = GetCurrentBehaviour().BaseHealth;
+            }
+
+            yield return new WaitForSeconds(2f);
+        }
+    }
+
+    /****************************************************
+     *
+     * Helper functions
+     *
+     ****************************************************/
 
     public PlayerBehaviour GetCurrentBehaviour()
     {

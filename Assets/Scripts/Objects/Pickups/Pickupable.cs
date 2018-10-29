@@ -12,4 +12,9 @@ public class Pickupable : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    void FixedUpdate()
+    {
+        transform.RotateAround(transform.position, transform.up, Time.deltaTime * 40f);
+    }
 }
