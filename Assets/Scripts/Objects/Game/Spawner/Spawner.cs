@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
      *
      ****************************************************/
 
-    public MonsterStateController Monster;
+    public GameObject Monster;
     public float SpawnRadius;
     public float EnableDistance;
 
