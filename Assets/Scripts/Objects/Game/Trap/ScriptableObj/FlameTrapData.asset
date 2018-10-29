@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6614febb984d7794aabd4aa7e38bdcc3, type: 3}
   m_Name: FlameTrapData
   m_EditorClassIdentifier: 
-  DamageInterval: 0.5
+  DamageInterval: 0.1
   Damage: 0.5
