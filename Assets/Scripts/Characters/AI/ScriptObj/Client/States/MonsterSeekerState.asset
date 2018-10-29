@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491bf770b22c1dd4db329e4ebf72fedd, type: 3}
-  m_Name: NMonsterSeekerState
+  m_Name: MonsterSeekerState
   m_EditorClassIdentifier: 
   Transitions:
   - Decider: {fileID: 11400000, guid: 06699c4646930be4790afcae54758350, type: 2}
     SucceedState: {fileID: 11400000, guid: d47ae1733ddfd1d40b6444119f2c9a75, type: 2}
     FailState: {fileID: 0}
   - Decider: {fileID: 11400000, guid: 752f5c6ca194a784ba9009e1ea5f1a22, type: 2}
-    SucceedState: {fileID: 11400000, guid: 27de57d635ad7bb40be45f57f2344aa0, type: 2}
+    SucceedState: {fileID: 11400000, guid: 0804a6a1f8ddd0645b05fd4bedd8f8db, type: 2}
     FailState: {fileID: 0}
   Actions:
   - {fileID: 11400000, guid: 7b97e5db986b78342a6b3ee883c32894, type: 2}

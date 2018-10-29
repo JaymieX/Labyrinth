@@ -47,6 +47,8 @@ public class MonsterStateController : MonoBehaviour
      *
      ****************************************************/
 
+    internal float AttackInterval;
+    internal float NavMeshUpdateInterval;
     internal bool IsDead;
 
     // Use this for initialization
@@ -55,6 +57,8 @@ public class MonsterStateController : MonoBehaviour
         NavMA = GetComponent<NavMeshAgent>();
         Ani = GetComponent<Animator>();
 
+        AttackInterval = 0f;
+        NavMeshUpdateInterval = 1f;
         IsDead = false;
     }
 
@@ -96,7 +100,7 @@ public class MonsterStateController : MonoBehaviour
         (
             Physics.SphereCast
             (
-                transform.position + new Vector3(0f, 1f, 0f),
+                transform.position + new Vector3(0f, 0.5f, 0f),
                 MInfo.SightRad,
                 transform.forward,
                 out hit,
@@ -106,6 +110,24 @@ public class MonsterStateController : MonoBehaviour
         {
             // Test to see if monster saw player
             return hit.transform.tag == "Player";
+        }
+
+        return false; // Did not see any objects
+    }
+
+    public bool SeekAttackForward()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere
+        (
+            transform.position + new Vector3(0f, 1f, MInfo.AttackRange),
+            MInfo.AttackRad
+        );
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.tag == "Player")
+            {
+                return true;
+            }
         }
 
         return false; // Did not see any objects
