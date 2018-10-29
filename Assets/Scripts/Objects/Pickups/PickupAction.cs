@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class PickupAction : MonoBehaviour
+public abstract class PickupAction : ScriptableObject
 {
     public abstract void Execute();
 }
