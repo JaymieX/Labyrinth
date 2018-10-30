@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 // Signature
 internal delegate void HandlePlayerOpenInteract();
@@ -154,6 +156,11 @@ public class PlayerManager : MonoBehaviour
     private void OnPlayerDeath()
     {
         Debug.Log("You Died!");
+        PlayerController.gameObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        SceneManager.LoadScene("GameOverScene");
     }
 
     private IEnumerator RegenHealth()
