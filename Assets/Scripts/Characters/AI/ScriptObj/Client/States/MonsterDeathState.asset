@@ -16,8 +16,8 @@ MonoBehaviour:
   BeginEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: a9b27d16c11dea340bcdbc1d6a177305, type: 2}
-        m_MethodName: OnDeathBegin
+      - m_Target: {fileID: 11400000, guid: 0ac1184313fc82e4f95540dd3b605c2c, type: 2}
+        m_MethodName: OnDeathEnters
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

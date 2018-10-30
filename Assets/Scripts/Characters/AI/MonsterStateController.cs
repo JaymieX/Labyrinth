@@ -47,6 +47,10 @@ public class MonsterStateController : MonoBehaviour
      *
      ****************************************************/
 
+    // Resources
+    internal float Health;
+
+    // Data
     internal float AttackInterval;
     internal float NavMeshUpdateInterval;
     internal bool IsDead;
@@ -56,6 +60,8 @@ public class MonsterStateController : MonoBehaviour
     {
         NavMA = GetComponent<NavMeshAgent>();
         Ani = GetComponent<Animator>();
+
+        Health = MInfo.Health;
 
         AttackInterval = 0f;
         NavMeshUpdateInterval = 1f;
@@ -139,5 +145,10 @@ public class MonsterStateController : MonoBehaviour
         playerPos.y = transform.position.y;
 
         NavMA.SetDestination(playerPos);
+    }
+
+    public void RemoveHealth(float amount)
+    {
+        Health -= amount;
     }
 }

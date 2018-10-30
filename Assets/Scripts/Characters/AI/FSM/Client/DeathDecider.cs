@@ -5,6 +5,6 @@ public class DeathDecider : MonsterDecider
 {
     public override bool Condition(MonsterStateController msc)
     {
-        return msc.IsDead;
+        return msc.Health <= 0;
     }
 }

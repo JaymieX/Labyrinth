@@ -16,8 +16,8 @@ public class RangeNTrait : ICommand
         {
             if (hit.collider.tag == "Monster")
             {
-                var monster = hit.collider.gameObject.GetComponent<IMonsterController>();
-                monster.Die();
+                var monster = hit.collider.gameObject.GetComponent<MonsterStateController>();
+                monster.RemoveHealth(rangeWeapon.Damage);
             }
         }
     }

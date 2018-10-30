@@ -18,9 +18,4 @@ public class AnimationEvents : ScriptableObject
     {
         msc.Ani.SetBool("PlayerInRange", false);
     }
-
-    public void OnDeathBegin(MonsterStateController msc)
-    {
-        msc.Ani.SetTrigger("Dead");
-    }
 }
