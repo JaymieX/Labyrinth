@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c589318501986c144b5c6206d9d8c084, type: 3}
+  m_Name: WaterTrapAction
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 8da6d77b2ecb61348b84709a5cd617d5, type: 2}
