@@ -20,7 +20,6 @@ public class PlayerManager : MonoBehaviour
      *
      ****************************************************/
 
-    internal CharacterController PlayerCharacterController;
     internal PlayerController PlayerController;
 
     internal ushort MaxPlayers = 1; // Max number of player

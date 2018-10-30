@@ -141,7 +141,7 @@ public class MonsterStateController : MonoBehaviour
 
     public void ChasePlayer()
     {
-        Vector3 playerPos = PlayerManager.Instance.PlayerCharacterController.transform.position;
+        Vector3 playerPos = PlayerManager.Instance.PlayerPos;
         playerPos.y = transform.position.y;
 
         NavMA.SetDestination(playerPos);

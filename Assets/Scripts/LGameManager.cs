@@ -2,7 +2,6 @@
 
 public class LGameManager : MonoBehaviour
 {
-    public CharacterController CharacterController;
     public PlayerController PlayerController;
 
     // Use this for initialization
@@ -10,7 +9,6 @@ public class LGameManager : MonoBehaviour
     {
         PlayerManager.Instance.ResetAll();
 
-        PlayerManager.Instance.PlayerCharacterController = CharacterController;
         PlayerManager.Instance.PlayerController = PlayerController;
     }
 }
