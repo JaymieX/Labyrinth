@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
@@ -37,6 +38,8 @@ public class MonsterStateController : MonoBehaviour
     public MonsterState CurrentMonsterState;
     public TransitionPack[] AllStateTransitions;
 
+    internal BitArray AllSateEnableList;
+
     // GameObject components
     internal NavMeshAgent NavMA;
     internal Animator Ani;
@@ -69,15 +72,23 @@ public class MonsterStateController : MonoBehaviour
         AttackInterval = 0f;
         NavMeshUpdateInterval = 1f;
         IsDead = false;
+
+        // All state
+        AllSateEnableList = new BitArray(AllStateTransitions.Length, true);
     }
 
     // Update is called once per frame
     private void Update()
     {
         // All state
-        foreach (var allStateTransition in AllStateTransitions)
+        for (int i = 0; i < AllStateTransitions.Length; i++)
         {
-            ChangeState(allStateTransition.Decider.Condition(this) ? allStateTransition.SucceedState : allStateTransition.FailState);
+            if (AllSateEnableList.Get(i))
+            {
+                ChangeState(AllStateTransitions[i].Decider.Condition(this)
+                    ? AllStateTransitions[i].SucceedState
+                    : AllStateTransitions[i].FailState);
+            }
         }
 
         // Current state
@@ -157,11 +168,25 @@ public class MonsterStateController : MonoBehaviour
 
     public void Die()
     {
-        Destroy(this.gameObject);
+        GetComponent<CapsuleCollider>().enabled = false;
 
         if (Random.Range(0f, 1f) < .6f)
         {
             Instantiate(DeathPickups[Random.Range(0, DeathPickups.Length)], transform.position + Vector3.up * 1.5f, Quaternion.identity);
         }
+
+        StartCoroutine("Despawn");
+    }
+
+    private IEnumerator Despawn()
+    {
+        float counter = 0f;
+        while (counter < 10f)
+        {
+            counter += 1f;
+            yield return new WaitForSeconds(1f);
+        }
+
+        Destroy(this.gameObject);
     }
 }

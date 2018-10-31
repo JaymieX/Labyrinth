@@ -11,3 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3593e135bc1ea4eb78efc1ff1f6d83, type: 3}
   m_Name: MonsterDeathDecider
   m_EditorClassIdentifier: 
+  Enable: 1

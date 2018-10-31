@@ -5,13 +5,11 @@ public class DeathEvents : ScriptableObject
 {
     public void OnDeathEnters(MonsterStateController msc)
     {
-        msc.Ani.SetTrigger("Dead");
+        // Disable death state transition
+        // This is to prevent monster state controller revert back and calls death state repeatably
+        msc.AllSateEnableList.Set(0, false);
 
-        float time = 50f;
-        while (time > 0f)
-        {
-            time -= Time.deltaTime;
-        }
+        msc.Ani.SetTrigger("Dead");
 
         msc.Die();
     }
