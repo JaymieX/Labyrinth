@@ -18,4 +18,10 @@ public class AnimationEvents : ScriptableObject
     {
         msc.Ani.SetBool("PlayerInRange", false);
     }
+
+    public void OnSeekBegin(MonsterStateController msc)
+    {
+        // Begin the scream animation
+        msc.Ani.SetBool("FoundPlayer", true);
+    }
 }
