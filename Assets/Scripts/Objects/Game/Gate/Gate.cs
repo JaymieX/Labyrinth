@@ -69,14 +69,14 @@ public class Gate : MonoBehaviour
 
     private IEnumerator HandleGateOpen()
     {
+        // Initiate next round
+        SpawnManager.Instance.SpawnEnemy();
+
         // Begin lowering the gate
         yield return StartCoroutine("LowerGate");
 
         // Destroy gate
         Destroy(_gateDoor);
-
-        // Initiate next round
-        SpawnManager.Instance.SpawnEnemy();
 
         // Destroy script
         PlayerManager.Instance.OnPlayerOpenInteract = null;
