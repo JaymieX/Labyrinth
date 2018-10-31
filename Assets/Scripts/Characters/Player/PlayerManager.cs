@@ -68,6 +68,8 @@ public class PlayerManager : MonoBehaviour
     public Vector3 PlayerPos;
     internal Vector3 MoveDirection = Vector3.zero;
 
+    internal bool IsInvincible;
+
     /****************************************************
      *
      * Actions
@@ -129,6 +131,8 @@ public class PlayerManager : MonoBehaviour
         ModHealth = 1f;
         ModLuck = 1f;
         ModGearRate = 1f;
+
+        IsInvincible = false;
     }
 
     /****************************************************
@@ -139,6 +143,8 @@ public class PlayerManager : MonoBehaviour
 
     public void RemoveHealth(float amount)
     {
+        if (IsInvincible) return; // Dont remove health if invincible
+
         CurrentHealth -= amount;
 
         if (CurrentHealth < 0)
@@ -163,6 +169,13 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
+    public void TriggerInvincible()
+    {
+        if (IsInvincible) return; // Dont trigger if player is already invincible
+
+        StartCoroutine("InvincibleCountDown");
+    }
+
     private IEnumerator RegenHealth()
     {
         while (true)
@@ -174,6 +187,18 @@ public class PlayerManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(2f);
+        }
+    }
+
+    private IEnumerator InvincibleCountDown()
+    {
+        float time = 10f;
+        IsInvincible = true;
+
+        while (time > 0f)
+        {
+            time -= 1f;
+            yield return new WaitForSeconds(1f);
         }
     }
 
