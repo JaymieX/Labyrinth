@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 136575937631930314}
   - component: {fileID: 195798369868891018}
   - component: {fileID: 114463538232388864}
+  - component: {fileID: 114138873836345164}
   m_Layer: 0
   m_Name: Crawler
   m_TagString: Monster
@@ -1996,6 +1997,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114138873836345164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240459265129824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe7bf082a07dab4281af1bc07068f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1946796737478986, guid: 6d00166698d79f44faa60b20108da0c0, type: 2}
 --- !u!114 &114463538232388864
 MonoBehaviour:
   m_ObjectHideFlags: 1
