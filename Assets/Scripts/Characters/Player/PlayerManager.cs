@@ -200,6 +200,8 @@ public class PlayerManager : MonoBehaviour
             time -= 1f;
             yield return new WaitForSeconds(1f);
         }
+
+        IsInvincible = false;
     }
 
     /****************************************************
