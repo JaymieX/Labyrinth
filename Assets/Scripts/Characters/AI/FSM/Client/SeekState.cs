@@ -20,7 +20,7 @@ public class SeekState : MonsterState
 
         if (msc.NavMeshUpdateInterval <= 0f)
         {
-            msc.NavMeshUpdateInterval = 2f;
+            msc.NavMeshUpdateInterval = 1f;
             // Execute
             foreach (var action in Actions)
             {

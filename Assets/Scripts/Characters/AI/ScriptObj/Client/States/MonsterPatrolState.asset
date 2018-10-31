@@ -8,13 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33532c5b397a7734481a3e84cdf2ce62, type: 3}
+  m_Script: {fileID: 11500000, guid: 491bf770b22c1dd4db329e4ebf72fedd, type: 3}
   m_Name: MonsterPatrolState
   m_EditorClassIdentifier: 
   Transitions:
   - Decider: {fileID: 11400000, guid: 5e1f84779c774f14bacdff281af68fdb, type: 2}
-    SucceedState: {fileID: 11400000, guid: 0804a6a1f8ddd0645b05fd4bedd8f8db, type: 2}
+    SucceedState: {fileID: 11400000, guid: 3679ac6f54cb2f34e9799bada20ab0d6, type: 2}
     FailState: {fileID: 0}
-  Actions: []
+  Actions:
+  - {fileID: 11400000, guid: 1f192435797c6e84fa997cf621cedd48, type: 2}
   BeginEvents: []
   EndEvents: []
