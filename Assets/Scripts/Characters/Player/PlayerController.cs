@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameObject _cameraObject;
+
     // States
     private IPlayerState _playerWeaponTypeState;
 
@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _cameraObject = transform.GetChild(0).gameObject;
+
         _playerWeaponTypeState = new WeaponIdleState();
         _playerWeaponTypeState.Begin();
     }
@@ -51,10 +53,9 @@ public class PlayerController : MonoBehaviour
     public bool CastRay(float range, out RaycastHit info)
     {
         // Ray cast
-        Vector3 origin = transform.position;
-        origin.y += 0.6f;
+        Vector3 origin = _cameraObject.transform.position;
 
-        Debug.DrawRay(origin, transform.forward * range, Color.red);
-        return Physics.Raycast(origin, transform.forward, out info, range);
+        Debug.DrawRay(origin, _cameraObject.transform.forward * range, Color.red);
+        return Physics.Raycast(origin, _cameraObject.transform.forward, out info, range);
     }
 }
