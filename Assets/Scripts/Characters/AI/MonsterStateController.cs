@@ -41,6 +41,9 @@ public class MonsterStateController : MonoBehaviour
     internal NavMeshAgent NavMA;
     internal Animator Ani;
 
+    // Drops
+    public GameObject[] DeathPickups;
+
     /****************************************************
      *
      * Misc
@@ -150,5 +153,15 @@ public class MonsterStateController : MonoBehaviour
     public void RemoveHealth(float amount)
     {
         Health -= amount;
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+
+        if (Random.Range(0f, 1f) < .6f)
+        {
+            Instantiate(DeathPickups[Random.Range(0, DeathPickups.Length)], transform.position + Vector3.up * 1.5f, Quaternion.identity);
+        }
     }
 }

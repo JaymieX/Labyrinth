@@ -13,6 +13,6 @@ public class DeathEvents : ScriptableObject
             time -= Time.deltaTime;
         }
 
-        Destroy(msc.gameObject);
+        msc.Die();
     }
 }

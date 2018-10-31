@@ -2014,6 +2014,8 @@ MonoBehaviour:
   - Decider: {fileID: 11400000, guid: b289fe5f17110d14ebcb13f4b9c134ea, type: 2}
     SucceedState: {fileID: 11400000, guid: 2ef89bebb2aa1af47a6585c464be169c, type: 2}
     FailState: {fileID: 0}
+  DeathPickups:
+  - {fileID: 1369332475005408, guid: 78cc7e42d00efbd4baa0e2adfad21438, type: 2}
 --- !u!136 &136575937631930314
 CapsuleCollider:
   m_ObjectHideFlags: 1

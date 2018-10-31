@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65271856166244260}
   - component: {fileID: 114120382172259496}
   m_Layer: 0
-  m_Name: Box
+  m_Name: PickupInvinc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369332475005408}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: -6.87}
+  m_LocalPosition: {x: 201.73535, y: 51.473, z: 207.91882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838bd19d571d2444caba147e6e61012c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
-  GraphicEffect: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9,
-    type: 2}
+  Action: {fileID: 11400000, guid: bd07e9c25ee0363468b52755577c27f8, type: 2}
