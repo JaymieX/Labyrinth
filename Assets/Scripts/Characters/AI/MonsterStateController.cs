@@ -172,7 +172,11 @@ public class MonsterStateController : MonoBehaviour
 
         if (Random.Range(0f, 1f) < .6f)
         {
-            Instantiate(DeathPickups[Random.Range(0, DeathPickups.Length)], transform.position + Vector3.up * 1.5f, Quaternion.identity);
+            if (DeathPickups.Length != 0)
+            {
+                Instantiate(DeathPickups[Random.Range(0, DeathPickups.Length)], transform.position + Vector3.up * 1.5f,
+                    Quaternion.identity);
+            }
         }
 
         StartCoroutine("Despawn");
