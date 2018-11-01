@@ -1650,7 +1650,7 @@ Transform:
   - {fileID: 166505294}
   - {fileID: 1638530170}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286139156
 GameObject:
@@ -4428,6 +4428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652441287}
   - component: {fileID: 652441288}
+  - component: {fileID: 652441289}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4461,6 +4462,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 1885213074}
   PauseUI: {fileID: 2044921335}
+  RangeWeapons:
+  - {fileID: 11400000, guid: 8b34515e4edc587458bc96ec38bf9d2c, type: 2}
+  - {fileID: 11400000, guid: 5eefd4e62ae7fd54b8e79b091d6a4e1d, type: 2}
+  - {fileID: 11400000, guid: 77e5a5237be6f594e90f7f456ff085b0, type: 2}
+--- !u!114 &652441289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652441286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3e609ac32425a49b1e9af6f835ea4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effects:
+  - Name: bullet_sand
+    Effect: {fileID: 1000012142692022, guid: a475880e7da0e9548aa05cb7933752cd, type: 2}
+  - Name: bullet_flesh
+    Effect: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069, type: 2}
 --- !u!1001 &663048252
 Prefab:
   m_ObjectHideFlags: 0
@@ -7198,7 +7219,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4143190673279730, guid: aba2eaa4907256545a9bf340a801ed97, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 1413680637153294, guid: aba2eaa4907256545a9bf340a801ed97, type: 2}
       propertyPath: m_IsActive
@@ -11855,7 +11876,7 @@ Transform:
   - {fileID: 386556320}
   - {fileID: 262261945}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 84.912, z: 0}
 --- !u!1001 &1872147326
 Prefab:
@@ -11970,7 +11991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_TagString

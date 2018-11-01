@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public struct RangeWeaponInfo
+[CreateAssetMenu(menuName = "Player/Data/RangeWeaponInfo")]
+public class RangeWeaponInfo : ScriptableObject
 {
-    public float Range { get; set; }
-    public float FireRate { get; set; }
-    public float Damage { get; set; }
+    public float Range;
+    public float FireRate;
+    public float Damage;
+    public float Spread;
 
-    public ushort MaxAmmo { get; set; }
-    public ushort CurAmmo { get; set; }
+    public ushort MaxAmmo;
 
-    public float ReloadTime { get; set; }
+    public float ReloadTime;
 }

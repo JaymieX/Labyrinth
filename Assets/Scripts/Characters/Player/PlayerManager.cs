@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -38,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     public ushort Gears { get; set; }
 
     public float CurrentHealth;
+    public ushort CurrentAmmo;
 
     // Power up
     public float ModWalkSpeed { get; set; } // Mod walking speed
@@ -57,7 +59,7 @@ public class PlayerManager : MonoBehaviour
     internal ushort CurRangeWeaponId;
 
     internal ushort CurMagSize;
-    internal RangeWeaponInfo[] CurRangeWeaponInfo;
+    internal List<RangeWeaponInfo> CurRangeWeaponInfo;
 
     /****************************************************
      *
@@ -93,13 +95,7 @@ public class PlayerManager : MonoBehaviour
             Instance.WeaponType = 0;
 
             // Init range weapon info
-            Instance.CurRangeWeaponInfo = new RangeWeaponInfo[2];
-            Instance.CurRangeWeaponInfo[0].Damage = 10.0f;
-            Instance.CurRangeWeaponInfo[0].FireRate = 1.2f;
-            Instance.CurRangeWeaponInfo[0].Range = 10.0f;
-            Instance.CurRangeWeaponInfo[0].MaxAmmo = 8;
-            Instance.CurRangeWeaponInfo[0].CurAmmo = 8;
-            Instance.CurRangeWeaponInfo[0].ReloadTime = 3.2f;
+            Instance.CurRangeWeaponInfo = new List<RangeWeaponInfo>();
         }
 
         // Setup so that Player manager do not gets destroyed
@@ -108,7 +104,12 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        // Constantly replenish health;
+        // Listen for weapon switch
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            CurRangeWeaponId = (ushort) ((CurRangeWeaponId + 1) % (CurRangeWeaponInfo.Count));
+            CurrentAmmo = CurRangeWeaponInfo[CurRangeWeaponId].MaxAmmo;
+        }
     }
 
     /****************************************************

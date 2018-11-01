@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7ec091daaeb574580157ab67b52a2d, type: 3}
+  m_Name: LMGInfo
+  m_EditorClassIdentifier: 
+  Range: 25
+  FireRate: 0.08
+  Damage: 1
+  Spread: 0.16
+  MaxAmmo: 300
+  ReloadTime: 15

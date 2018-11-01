@@ -56,6 +56,12 @@ public class PlayerController : MonoBehaviour
         Vector3 origin = _cameraObject.transform.position;
 
         Debug.DrawRay(origin, _cameraObject.transform.forward * range, Color.red);
-        return Physics.Raycast(origin, _cameraObject.transform.forward, out info, range);
+        Vector3 direction = _cameraObject.transform.forward;
+
+        float spread = PlayerManager.Instance.CurRangeWeaponInfo[PlayerManager.Instance.CurRangeWeaponId].Spread;
+        direction.x += Random.Range(0f, spread) * (Random.Range(0, 2) * 2 - 1);
+        direction.y += Random.Range(0f, spread) * (Random.Range(0, 2) * 2 - 1);
+
+        return Physics.Raycast(origin, direction * range, out info, range);
     }
 }

@@ -5,6 +5,8 @@ public class LGameManager : MonoBehaviour
     public PlayerController PlayerController;
     public GameObject PauseUI;
 
+    public RangeWeaponInfo[] RangeWeapons;
+
     private bool _pause;
 
     // Use this for initialization
@@ -13,6 +15,11 @@ public class LGameManager : MonoBehaviour
         PlayerManager.Instance.ResetAll();
 
         PlayerManager.Instance.PlayerController = PlayerController;
+
+        for (int i = 0; i < RangeWeapons.Length; i++)
+        {
+            PlayerManager.Instance.CurRangeWeaponInfo.Add(RangeWeapons[i]);
+        }
 
         _pause = false;
         PauseUI.SetActive(false);
