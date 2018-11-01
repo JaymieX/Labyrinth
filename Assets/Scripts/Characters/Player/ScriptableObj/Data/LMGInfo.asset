@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7ec091daaeb574580157ab67b52a2d, type: 3}
   m_Name: LMGInfo
   m_EditorClassIdentifier: 
-  Range: 25
+  Range: 30
   FireRate: 0.08
-  Damage: 1
-  Spread: 0.16
+  Damage: 1.2
+  Spread: 0.13
   MaxAmmo: 300
   ReloadTime: 15

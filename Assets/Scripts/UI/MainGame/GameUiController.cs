@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameUiController : MonoBehaviour
 {
     public Text GearCount;
+    public Text AmmoCount;
     public Image HpBar;
 
     // Use this for initialization
@@ -17,6 +18,8 @@ public class GameUiController : MonoBehaviour
     void Update()
     {
         GearCount.text = PlayerManager.Instance.Gears + "";
+        AmmoCount.text = PlayerManager.Instance.CurrentAmmo + "/" + PlayerManager.Instance
+                             .CurRangeWeaponInfo[PlayerManager.Instance.CurRangeWeaponId].MaxAmmo;
 
         HpBar.transform.localScale =
             new Vector3(PlayerManager.Instance.CurrentHealth / PlayerManager.Instance.GetCurrentBehaviour().BaseHealth, 1f, 1f);
