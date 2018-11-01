@@ -16,6 +16,7 @@ MonoBehaviour:
   AttackSpeed: 8
   AttackRange: 1.5
   AttackRad: 10
+  MonsterName: Charger
   WalkSpeed: 5
   DeaggroDistance: 15
   SightRange: 6

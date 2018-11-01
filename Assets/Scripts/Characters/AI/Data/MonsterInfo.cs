@@ -11,6 +11,7 @@ public class MonsterInfo : ScriptableObject
     public float AttackRad;
 
     // General stats
+    public string MonsterName;
     public float WalkSpeed;
     public float DeaggroDistance;
 

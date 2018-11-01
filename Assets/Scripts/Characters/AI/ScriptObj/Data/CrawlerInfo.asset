@@ -16,6 +16,7 @@ MonoBehaviour:
   AttackSpeed: 5
   AttackRange: 1
   AttackRad: 10
+  MonsterName: Crawler
   WalkSpeed: 1
   DeaggroDistance: 35
   SightRange: 5
