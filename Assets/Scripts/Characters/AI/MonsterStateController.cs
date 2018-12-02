@@ -44,6 +44,9 @@ public class MonsterStateController : MonoBehaviour
     internal NavMeshAgent NavMA;
     internal Animator Ani;
 
+    // TargetPlayer
+    internal PlayerController TargetPlayer;
+
     // Drops
     public GameObject[] DeathPickups;
 
@@ -129,7 +132,13 @@ public class MonsterStateController : MonoBehaviour
         )
         {
             // Test to see if monster saw player
-            return hit.transform.tag == "Player";
+            if (hit.transform.tag == "Player")
+            {
+                // Assign target player
+                TargetPlayer = hit.transform.gameObject.GetComponent<PlayerController>();
+
+                return true;
+            }
         }
 
         return false; // Did not see any objects
@@ -155,7 +164,7 @@ public class MonsterStateController : MonoBehaviour
 
     public void ChasePlayer()
     {
-        Vector3 playerPos = PlayerManager.Instance.PlayerPos;
+        Vector3 playerPos = TargetPlayer.transform.position;
         playerPos.y = transform.position.y;
 
         NavMA.SetDestination(playerPos);

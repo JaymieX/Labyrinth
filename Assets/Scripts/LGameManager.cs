@@ -12,15 +12,6 @@ public class LGameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        PlayerManager.Instance.ResetAll();
-
-        PlayerManager.Instance.PlayerController = PlayerController;
-
-        for (int i = 0; i < RangeWeapons.Length; i++)
-        {
-            PlayerManager.Instance.CurRangeWeaponInfo.Add(RangeWeapons[i]);
-        }
-
         _pause = false;
         PauseUI.SetActive(false);
     }

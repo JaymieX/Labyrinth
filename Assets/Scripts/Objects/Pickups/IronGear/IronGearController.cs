@@ -14,10 +14,10 @@ public class IronGearController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            PlayerManager.Instance.Gears += amount;
-            Destroy(this.gameObject);
-        }
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    PlayerManager.Instance.Gears += amount;
+        //    Destroy(this.gameObject);
+        //}
     }
 }

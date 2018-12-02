@@ -5,7 +5,7 @@ public class InvinciablePickupAction : PickupAction
 {
     public override void Execute()
     {
-        PlayerManager.Instance.TriggerInvincible();
+        //PlayerManager.Instance.TriggerInvincible();
         Debug.Log("Invincible!!!");
     }
 }

@@ -15,6 +15,9 @@ public class Gate : MonoBehaviour
     // Child GameObjects
     private GameObject _gateDoor;
 
+    // Player
+    private PlayerController _player;
+
     // Use this for initialization
     private void Start()
     {
@@ -37,7 +40,8 @@ public class Gate : MonoBehaviour
         // Subscribe to event if player is in gate range
         if (collision.gameObject.tag == "Player")
         {
-            PlayerManager.Instance.OnPlayerOpenInteract = OnGateOpens;
+            _player = collision.gameObject.GetComponent<PlayerController>();
+            _player.OnPlayerOpenInteract = OnGateOpens;
         }
     }
 
@@ -46,7 +50,8 @@ public class Gate : MonoBehaviour
         // Unsubscribe to event if player is out of gate range
         if (collision.gameObject.tag == "Player")
         {
-            PlayerManager.Instance.OnPlayerOpenInteract = null;
+            _player.OnPlayerOpenInteract = null;
+            _player = null;
         }
     }
 
@@ -70,7 +75,7 @@ public class Gate : MonoBehaviour
     private IEnumerator HandleGateOpen()
     {
         // Initiate next round
-        SpawnManager.Instance.SpawnEnemy();
+        SpawnManager.Instance.SpawnEnemy(_player.transform.position);
 
         // Begin lowering the gate
         yield return StartCoroutine("LowerGate");
@@ -79,7 +84,7 @@ public class Gate : MonoBehaviour
         Destroy(_gateDoor);
 
         // Destroy script
-        PlayerManager.Instance.OnPlayerOpenInteract = null;
+        //PlayerManager.Instance.OnPlayerOpenInteract = null;
         Destroy(this);
     }
 

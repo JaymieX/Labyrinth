@@ -27,11 +27,11 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(Vector3 player)
     {
         foreach (var spawner in Spawners)
         {
-            Vector3 playerPos = PlayerManager.Instance.PlayerPos;
+            Vector3 playerPos = player;
             playerPos.y = 0f;
 
             Vector3 spawnerPos = spawner.transform.position;
