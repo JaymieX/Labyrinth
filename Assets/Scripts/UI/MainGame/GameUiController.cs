@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class GameUiController : MonoBehaviour
 {
     public Text GearCount;
-    public Text AmmoCount;
+    public Text OverheatNote;
     public Image HpBar;
+
+    public PlayerController player;
 
     // Use this for initialization
     void Start()
@@ -21,12 +23,7 @@ public class GameUiController : MonoBehaviour
         //AmmoCount.text = PlayerManager.Instance.CurrentAmmo + "/" + PlayerManager.Instance
         //                     .CurRangeWeaponInfo[PlayerManager.Instance.CurRangeWeaponId].MaxAmmo;
 
-        //HpBar.transform.localScale =
-        //    new Vector3(PlayerManager.Instance.CurrentHealth / PlayerManager.Instance.GetCurrentBehaviour().BaseHealth, 1f, 1f);
-            //SetSizeWithCurrentAnchors
-            //    (
-            //        RectTransform.Axis.Horizontal,
-            //        PlayerManager.Instance.CurrentHealth * 3f
-            //    );
+        HpBar.transform.localScale =
+            new Vector3(player.health / 100.0f, 1f, 1f);
     }
 }

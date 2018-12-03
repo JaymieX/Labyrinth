@@ -9,8 +9,8 @@ public class GenericTrapAction : TrapAction
         {
             c.Interval = Data.DamageInterval;
 
-            //PlayerManager.Instance.RemoveHealth(Data.Damage);
             Debug.Log("Player lose hp");
+            other.transform.gameObject.GetComponent<PlayerController>().RemoveHealth(Data.Damage);
         }
         else
         {

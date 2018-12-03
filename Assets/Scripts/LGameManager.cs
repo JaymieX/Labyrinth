@@ -13,7 +13,7 @@ public class LGameManager : MonoBehaviour
     void Start()
     {
         _pause = false;
-        PauseUI.SetActive(false);
+        //PauseUI.SetActive(false);
     }
 
     private void Update()

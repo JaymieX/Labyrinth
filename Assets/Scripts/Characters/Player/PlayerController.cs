@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 delegate void PlayerOpenInteract();
 
@@ -12,8 +13,14 @@ public class PlayerController : MonoBehaviour
     public KeyCode Jump;
     public KeyCode Fire;
 
+    // Stats
     internal float moveSpeed = 5.0f;
     internal float rotateSpeed = 100.0f;
+    internal float health = 100.0f;
+
+    private bool invincible = false;
+
+    internal float healthRegenCoolDown = 3.5f;
 
     private GameObject _cameraObject;
     private CharacterController _controller;
@@ -114,6 +121,28 @@ public class PlayerController : MonoBehaviour
             // Decrease cool down
             fireCoolDown -= Time.deltaTime;
         }
+
+        // Re-gen health
+        if (healthRegenCoolDown <= 0.0f)
+        {
+            // Reset health cool down
+            healthRegenCoolDown = 3.5f;
+
+            // Actual re-gen
+            if (health < 100.0f)
+            {
+                health += 1f;
+            }
+            else
+            {
+                health = 100f;
+            }
+        }
+        else
+        {
+            // Decrease cool down
+            healthRegenCoolDown -= Time.deltaTime;
+        }
     }
 
     public bool CastRay(float range, out RaycastHit info)
@@ -126,5 +155,32 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = _cameraObject.transform.forward;
 
         return Physics.Raycast(origin, direction * range, out info, range);
+    }
+
+    public void RemoveHealth(float amount)
+    {
+        if (invincible) return;
+
+        health -= amount;
+    }
+
+    public void Invinvible()
+    {
+        StartCoroutine("BeginInvincible");
+    }
+
+    private IEnumerator BeginInvincible()
+    {
+        invincible = true;
+
+        float time = 8f;
+        while (time > 0f)
+        {
+            time -= 1.0f;
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        invincible = false;
     }
 }

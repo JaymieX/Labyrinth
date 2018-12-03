@@ -2,5 +2,5 @@
 
 public abstract class PickupAction : ScriptableObject
 {
-    public abstract void Execute();
+    public abstract void Execute(PlayerController p);
 }

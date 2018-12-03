@@ -8,7 +8,7 @@ public class Pickupable : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Action.Execute();
+            Action.Execute(other.gameObject.GetComponent<PlayerController>());
             Destroy(this.gameObject);
         }
     }

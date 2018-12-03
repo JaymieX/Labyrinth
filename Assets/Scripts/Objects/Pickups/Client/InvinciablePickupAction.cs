@@ -3,9 +3,9 @@
 [CreateAssetMenu(menuName = "Pickupable/Action/Invinc")]
 public class InvinciablePickupAction : PickupAction
 {
-    public override void Execute()
+    public override void Execute(PlayerController p)
     {
-        //PlayerManager.Instance.TriggerInvincible();
         Debug.Log("Invincible!!!");
+        p.Invinvible();
     }
 }
