@@ -23,5 +23,8 @@ public class AnimationEvents : ScriptableObject
     {
         // Begin the scream animation
         msc.Ani.SetBool("FoundPlayer", true);
+
+        // Play roar sound
+        msc.Audio.Play();
     }
 }

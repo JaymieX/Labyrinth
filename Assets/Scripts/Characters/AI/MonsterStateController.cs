@@ -43,6 +43,7 @@ public class MonsterStateController : MonoBehaviour
     // GameObject components
     internal NavMeshAgent NavMA;
     internal Animator Ani;
+    internal AudioSource Audio;
 
     // TargetPlayer
     internal PlayerController TargetPlayer;
@@ -69,6 +70,7 @@ public class MonsterStateController : MonoBehaviour
     {
         NavMA = GetComponent<NavMeshAgent>();
         Ani = GetComponent<Animator>();
+        Audio = GetComponent<AudioSource>();
 
         Health = MInfo.Health;
 
