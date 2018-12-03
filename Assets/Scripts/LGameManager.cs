@@ -41,15 +41,4 @@ public class LGameManager : MonoBehaviour
             _pause = !_pause;
         }
     }
-
-    public void OnButtonQuitClick()
-    {
-        Debug.Log("Quitting game");
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
-    }
 }
