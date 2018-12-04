@@ -2210,6 +2210,9 @@ MonoBehaviour:
     FailState: {fileID: 0}
   DeathPickups:
   - {fileID: 1369332475005408, guid: 78cc7e42d00efbd4baa0e2adfad21438, type: 2}
+  - {fileID: 1503354735508088, guid: b46e40cb509b0bf478e697d99aa9960d, type: 2}
+  - {fileID: 1385812329460446, guid: 92ddb0752bfa2bc46962b47c09a62b8d, type: 2}
+  - {fileID: 1698738948000670, guid: 59423d594a4a7584e974a4bd97d2da33, type: 2}
 --- !u!136 &136575937631930314
 CapsuleCollider:
   m_ObjectHideFlags: 1

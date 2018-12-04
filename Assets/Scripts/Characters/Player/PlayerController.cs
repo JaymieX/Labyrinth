@@ -250,4 +250,24 @@ public class PlayerController : MonoBehaviour
         health = 100f; // Reset health
         OnAliveEvent.Invoke(); // Remove death screen
     }
+
+    public void FastWalk()
+    {
+        StartCoroutine("BeginFastWalk");
+    }
+
+    private IEnumerator BeginFastWalk()
+    {
+        moveSpeed = 15f;
+
+        float time = 8f;
+        while (time > 0f)
+        {
+            time -= 1f;
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        moveSpeed = 5f;
+    }
 }
