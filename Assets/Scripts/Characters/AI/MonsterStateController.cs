@@ -51,6 +51,10 @@ public class MonsterStateController : MonoBehaviour
     // Drops
     public GameObject[] DeathPickups;
 
+    // Other
+    public GameObject Projectile;
+    private float _coolDown;
+
     /****************************************************
      *
      * Misc
@@ -203,5 +207,19 @@ public class MonsterStateController : MonoBehaviour
         }
 
         Destroy(this.gameObject);
+    }
+
+    public void FireProjectile()
+    {
+        if (_coolDown < 0f)
+        {
+            _coolDown = 0.1f;
+            Instantiate(Projectile, transform.position + Vector3.up * 1.6f + transform.forward * 2f,
+                transform.rotation);
+        }
+        else
+        {
+            _coolDown -= Time.deltaTime;
+        }
     }
 }

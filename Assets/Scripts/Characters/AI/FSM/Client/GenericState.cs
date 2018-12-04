@@ -5,7 +5,10 @@ public class GenericState : MonsterState
 {
     public override void Begin(MonsterStateController msc)
     {
-        msc.NavMA.destination = msc.transform.position; // Stop the nav mesh agent in its place
+        if (msc.NavMA.enabled)
+        {
+            msc.NavMA.destination = msc.transform.position; // Stop the nav mesh agent in its place
+        }
 
         foreach (var beginEvent in BeginEvents)
         {
