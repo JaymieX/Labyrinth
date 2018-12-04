@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 delegate void PlayerOpenInteract();
 
@@ -14,9 +15,13 @@ public class PlayerController : MonoBehaviour
     public KeyCode Fire;
 
     // Stats
+    public Vector3 SpawnPoint;
+
+    internal ushort id = 1;
     internal float moveSpeed = 5.0f;
     internal float rotateSpeed = 100.0f;
     internal float health = 100.0f;
+    internal ushort gears = 0;
 
     private bool invincible = false;
 
@@ -24,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject _cameraObject;
     private CharacterController _controller;
+    private AudioSource _audio;
 
     // Weapon related
     private float fireCoolDown = 0.2f;
@@ -31,12 +37,18 @@ public class PlayerController : MonoBehaviour
     // Events
     internal PlayerOpenInteract OnPlayerOpenInteract;
 
+    // Unity events
+    public UnityEvent OnDeathEvent;
+    public UnityEvent OnAliveEvent;
+
     // Use this for initialization
     void Start()
     {
         _cameraObject = transform.GetChild(0).gameObject;
 
         _controller = GetComponent<CharacterController>();
+
+        _audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -97,6 +109,12 @@ public class PlayerController : MonoBehaviour
         _controller.Move(globalMoveSpeed * Time.deltaTime);
 
         // Weapon
+        if (Input.GetKeyDown(Fire))
+        {
+            // Play gun audio
+            _audio.Play();
+        }
+
         // Check if gun is cool down
         if (fireCoolDown <= 0.0f)
         {
@@ -112,6 +130,7 @@ public class PlayerController : MonoBehaviour
                     if (info.collider.tag == "Monster")
                     {
                         info.collider.gameObject.GetComponent<MonsterStateController>().RemoveHealth(3.5f);
+                        gears++;
                     }
                 }
             }
@@ -120,6 +139,13 @@ public class PlayerController : MonoBehaviour
         {
             // Decrease cool down
             fireCoolDown -= Time.deltaTime;
+        }
+
+        // Stops audio
+        if (Input.GetKeyUp(Fire))
+        {
+            Debug.Log("Keyup");
+            _audio.Stop();
         }
 
         // Re-gen health
@@ -159,9 +185,23 @@ public class PlayerController : MonoBehaviour
 
     public void RemoveHealth(float amount)
     {
+        // Check if player is invincible
         if (invincible) return;
 
+        // Decrease health
         health -= amount;
+
+        if (gears != 0)
+        {
+            gears--; // Decrease gears
+        }
+
+        // Check death
+        if (health < 0.0f)
+        {
+            // Player died
+            KillPlayer();
+        }
     }
 
     public void Invinvible()
@@ -173,6 +213,7 @@ public class PlayerController : MonoBehaviour
     {
         invincible = true;
 
+        // 8 Seconds of invincible
         float time = 8f;
         while (time > 0f)
         {
@@ -182,5 +223,31 @@ public class PlayerController : MonoBehaviour
         }
 
         invincible = false;
+    }
+
+    private void KillPlayer()
+    {
+        // Show death screen
+        OnDeathEvent.Invoke();
+
+        // Move player back to spawn
+        transform.position = SpawnPoint;
+
+        // Invoke respawn
+        StartCoroutine("BeginRespawn");
+    }
+
+    private IEnumerator BeginRespawn()
+    {
+        float time = 5f;
+        while (time > 0f)
+        {
+            time -= 1.0f;
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        health = 100f; // Reset health
+        OnAliveEvent.Invoke(); // Remove death screen
     }
 }
