@@ -1,12 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuButtonHandler : MonoBehaviour
 {
-    public void OnButtonPlayClick()
+    public void OnButtonPlayClick(bool single)
     {
-        SceneManager.LoadScene("CharacterCreateScene");
+        GameInit.IsSinglePlayer = single;
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void OnButtonQuitClick()
+    {
+        Debug.Log("Quitting game");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 }
