@@ -1110,7 +1110,7 @@ MonoBehaviour:
     SucceedState: {fileID: 11400000, guid: 2ef89bebb2aa1af47a6585c464be169c, type: 2}
     FailState: {fileID: 0}
   DeathPickups: []
-  Projectile: {fileID: 1363753621062658, guid: 431a560cafcce4d4c916a054e5001a3c, type: 2}
+  Projectile: {fileID: 1737272784942850, guid: a6358dde95871854f9a08bf834256f83, type: 2}
 --- !u!137 &137707720774165622
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
