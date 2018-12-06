@@ -2,7 +2,8 @@
 
 public class LGameManager : MonoBehaviour
 {
-    public PlayerController PlayerController;
+    public PlayerController PlayerController1;
+    public PlayerController PlayerController2;
     public GameObject PauseUI;
 
     public RangeWeaponInfo[] RangeWeapons;
@@ -12,8 +13,9 @@ public class LGameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _pause = false;
-        //PauseUI.SetActive(false);
+        _pause = false; // Don't pause at start
+
+
     }
 
     private void Update()
