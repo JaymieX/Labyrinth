@@ -183,7 +183,7 @@ public class MonsterStateController : MonoBehaviour
 
     public void Die()
     {
-        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<Collider>().enabled = false;
 
         if (Random.Range(0f, 1f) < .6f)
         {
