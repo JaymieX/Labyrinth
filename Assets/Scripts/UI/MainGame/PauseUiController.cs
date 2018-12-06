@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseUiController : MonoBehaviour
@@ -19,6 +20,14 @@ public class PauseUiController : MonoBehaviour
     public void OnMasterValueChanged()
     {
         MainMixer.SetFloat("MasterVolume", MasterSlider.value);
+    }
+
+    public void OnButtonMainMenuClick()
+    {
+        // Un pause
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void OnButtonQuitClick()
