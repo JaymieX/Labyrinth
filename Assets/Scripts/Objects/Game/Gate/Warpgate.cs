@@ -8,8 +8,11 @@ public class Warpgate : MonoBehaviour
         // Check if its a player that entered the warp gate
         if (other.tag == "Player")
         {
-            // Setup winner data
             var player = other.gameObject.GetComponent<PlayerController>();
+
+            if (!player.CanWinGame) return; // Quit if player cannot win game yet
+
+            // Setup winner data
             WinnerManager.WinnerId = player.id;
             WinnerManager.Gears = player.gears;
 

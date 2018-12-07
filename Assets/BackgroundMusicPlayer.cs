@@ -2,9 +2,15 @@
 
 public class BackgroundMusicPlayer : MonoBehaviour
 {
+    private static BackgroundMusicPlayer _instance;
+
     // Use this for initialization
     void Awake()
     {
-        DontDestroyOnLoad(gameObject); // Kep music playing
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject); // Kep music playing
+        }
     }
 }

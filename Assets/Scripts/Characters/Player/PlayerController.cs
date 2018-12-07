@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     internal float health = 100.0f;
     internal ushort gears = 0;
 
+    internal bool CanWinGame = false;
+
     private bool invincible = false;
 
     internal float healthRegenCoolDown = 3.5f;
