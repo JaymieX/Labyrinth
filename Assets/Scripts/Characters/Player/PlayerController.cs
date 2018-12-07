@@ -131,6 +131,14 @@ public class PlayerController : MonoBehaviour
                     {
                         info.collider.gameObject.GetComponent<MonsterStateController>().RemoveHealth(3.5f);
                         gears++;
+
+                        // VFX blood
+                        Instantiate(EffectBank.Instance.Effects[1].Effect, info.point, Quaternion.identity);
+                    }
+                    else
+                    {
+                        // VFX dirt
+                        Instantiate(EffectBank.Instance.Effects[0].Effect, info.point, Quaternion.identity);
                     }
                 }
             }

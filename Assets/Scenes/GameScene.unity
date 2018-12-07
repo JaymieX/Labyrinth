@@ -2468,6 +2468,11 @@ Prefab:
       propertyPath: SpawnPoint.z
       value: 209.9687
       objectReference: {fileID: 0}
+    - target: {fileID: 81994251700699540, guid: 16bc9a882734bec44aa5f70a38a1fdb2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16bc9a882734bec44aa5f70a38a1fdb2, type: 2}
   m_IsPrefabAsset: 0
