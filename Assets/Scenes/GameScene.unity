@@ -2473,6 +2473,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82647403297228700, guid: 16bc9a882734bec44aa5f70a38a1fdb2,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16bc9a882734bec44aa5f70a38a1fdb2, type: 2}
   m_IsPrefabAsset: 0
@@ -9199,6 +9204,11 @@ Prefab:
     - target: {fileID: 4507287948767036, guid: 16bc9a882734bec44aa5f70a38a1fdb2, type: 2}
       propertyPath: m_RootOrder
       value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 82647403297228700, guid: 16bc9a882734bec44aa5f70a38a1fdb2,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16bc9a882734bec44aa5f70a38a1fdb2, type: 2}

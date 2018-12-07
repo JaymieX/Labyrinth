@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward * 3500f);
+        GetComponent<Rigidbody>().AddForce(transform.forward * 2500f);
     }
 
     void OnCollisionEnter(Collision collision)

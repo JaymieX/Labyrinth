@@ -18,6 +18,6 @@ MonoBehaviour:
   AttackRad: 60
   MonsterName: GunBot
   WalkSpeed: 0
-  DeaggroDistance: 60
+  DeaggroDistance: 38
   SightRange: 60
   SightRad: 12

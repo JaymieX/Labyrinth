@@ -12,5 +12,9 @@ public class BackgroundMusicPlayer : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject); // Kep music playing
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
